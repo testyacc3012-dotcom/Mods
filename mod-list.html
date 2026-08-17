@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Sandboxels Mods + Tutorial</title>
+	<meta name="description" content="List of Sandboxels mods and how to install them.">
+	<meta name="keywords" content="falling sand, elements, pixel art, simulator, powder">
+	<meta name="author" content="R74n">
+	<meta name="copyright" content="R74n">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="all">
+	<link rel="canonical" href="https://sandboxels.r74n.com/mod-list" id="canonicalLink"/>
+
+	<!--Favicons-->
+	<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png?v=2">
+	<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png?v=2">
+	<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png?v=2">
+	<link rel="manifest" href="manifest.json">
+	<link rel="mask-icon" href="icons/safari-pinned-tab.svg?v=2" color="#2167ff">
+	<link rel="shortcut icon" href="icons/favicon.ico?v=2">
+	<meta name="msapplication-TileColor" content="#e6d577">
+	<meta name="theme-color" content="#12141a">
+
+	<!--OpenGraph-->
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Sandboxels Mod List">
+	<meta property="og:description" content="Big list of mods for Sandboxels and a tutorial to enable them.">
+	<meta property="og:url" content="https://sandboxels.r74n.com/mod-list">
+	<meta property="og:site_name" content="Sandboxels">
+	<meta property="og:image" content="https://sandboxels.r74n.com/icons/cover-3840x1240px-text.png">
+	<meta property="og:image:width" content="3840">
+	<meta property="og:image:height" content="1240">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:alt" content="Magma falling into Water, forming Steam and Basalt. Pixel art style.">
+
+	<!--Twitter-->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Sandboxels Mod List">
+	<meta name="twitter:description" content="Big list of mods for Sandboxels and a tutorial to enable them.">
+	<meta name="twitter:site:id" content="1436857621827530753">
+	<meta name="twitter:image" content="https://sandboxels.r74n.com/icons/cover-3840x1240px-text.png">
+	<meta name="twitter:image:alt" content="Magma falling into Water, forming Steam and Basalt. Pixel art style.">
+	<meta name="twitter:creator:id" content="1436857621827530753">
+
+	<link rel="stylesheet" type="text/css" href="style.css?nocache=3">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<style>
+		:root{
+			--bg: #12141a;
+			--surface: #1a1d24;
+			--surface-2: #20232c;
+			--line: #2a2e38;
+			--line-soft: #23262f;
+			--accent: #c9922f;
+			--accent-soft: #c9922f22;
+			--link: #6fb3c9;
+			--text: #e4e3e0;
+			--text-dim: #a2a5b0;
+			--text-faint: #6c707c;
+			--radius: 8px;
+			--mono: 'IBM Plex Mono', monospace;
+			--sans: 'Inter', Arial, Helvetica, sans-serif;
+			--shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
+			--shadow-md: 0 6px 20px -8px rgba(0,0,0,0.5);
+		}
+
+		*{ box-sizing: border-box; }
+		html{ scroll-behavior: smooth; }
+
+		body{
+			background: var(--bg);
+			color: var(--text);
+			font-family: var(--sans);
+			margin: 0;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		a{ color: var(--link); text-decoration: none; }
+		a:hover{ text-decoration: underline; }
+		a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible{
+			outline: 2px solid var(--accent);
+			outline-offset: 2px;
+			border-radius: 3px;
+		}
+
+		/* ---------- Header ---------- */
+		header.hero{
+			border-bottom: 1px solid var(--line);
+			background: linear-gradient(180deg, #171a20 0%, var(--bg) 100%);
+		}
+		.hero-inner{ max-width: 900px; margin: 0 auto; padding: 30px 24px 26px; }
+
+		.eyebrow{
+			font-family: var(--mono);
+			font-size: 0.72em;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+			color: var(--accent);
+			margin: 0 0 10px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		.eyebrow::before{
+			content: "";
+			width: 6px; height: 6px;
+			background: var(--accent);
+			border-radius: 1px;
+			display: inline-block;
+		}
+
+		.backbutton{
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 30px; height: 30px;
+			border: 1px solid var(--line);
+			border-radius: var(--radius);
+			color: var(--text-dim);
+			font-family: var(--mono);
+			margin-right: 10px;
+			vertical-align: middle;
+			transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+		}
+		.backbutton:hover{ color: var(--accent); border-color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+
+		h1{
+			font-family: var(--sans);
+			font-weight: 800;
+			font-size: 1.9em;
+			letter-spacing: -0.02em;
+			display: inline-flex;
+			align-items: center;
+			margin: 0;
+			color: #f4f3f0;
+		}
+		@media (max-width: 700px){ h1{ font-size: 1.4em; } }
+
+		.tagline{
+			color: var(--text-dim);
+			max-width: 66ch;
+			margin: 16px 0 0;
+			line-height: 1.65;
+			font-size: 1.02em;
+		}
+
+		.hero-meta{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			margin-top: 20px;
+			padding-top: 18px;
+			border-top: 1px solid var(--line-soft);
+			font-family: var(--mono);
+			font-size: 0.8em;
+			color: var(--text-faint);
+		}
+		.hero-meta strong{ color: var(--text); font-weight: 600; }
+
+		/* subtle signature strip: a thin structured "sediment" bar, not a toy */
+		#sandStrip{
+			display: block;
+			width: 100%;
+			height: 46px;
+		}
+
+		/* ---------- Sticky controls ---------- */
+		.controls{
+			position: sticky;
+			top: 0;
+			z-index: 20;
+			background: #12141af2;
+			backdrop-filter: blur(8px);
+			border-bottom: 1px solid var(--line);
+			box-shadow: var(--shadow-sm);
+		}
+		.controls-inner{ max-width: 900px; margin: 0 auto; padding: 14px 24px; }
+
+		.search-row{
+			display: flex;
+			gap: 10px;
+			align-items: center;
+		}
+		.search-wrap{
+			position: relative;
+			flex: 1;
+		}
+		.search-wrap svg{
+			position: absolute;
+			left: 12px; top: 50%;
+			transform: translateY(-50%);
+			opacity: 0.5;
+			pointer-events: none;
+		}
+		#searchBox{
+			width: 100%;
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: var(--radius);
+			color: var(--text);
+			font-family: var(--mono);
+			font-size: 0.92em;
+			padding: 10px 14px 10px 36px;
+			transition: border-color 0.15s ease, background 0.15s ease;
+		}
+		#searchBox::placeholder{ color: var(--text-faint); }
+		#searchBox:focus{ border-color: var(--accent); outline: none; background: var(--surface-2); }
+		#clearSearch{
+			font-family: var(--mono);
+			font-size: 0.75em;
+			color: var(--text-faint);
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: var(--radius);
+			padding: 10px 12px;
+			cursor: pointer;
+			display: none;
+			transition: color 0.15s ease, border-color 0.15s ease;
+		}
+		#clearSearch:hover{ color: var(--text); border-color: var(--text-faint); }
+		#clearSearch.visible{ display: inline-block; }
+
+		#resultCount{
+			font-family: var(--mono);
+			font-size: 0.76em;
+			color: var(--text-faint);
+			margin-top: 9px;
+		}
+
+		/* ---------- Content ---------- */
+		#content{ max-width: 900px; margin: 0 auto; padding: 34px 24px 80px; }
+
+		h2{
+			font-family: var(--sans);
+			font-weight: 700;
+			font-size: 1.15em;
+			letter-spacing: -0.01em;
+			margin: 50px 0 6px;
+			color: #f4f3f0;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+		h2::before{
+			content: "";
+			width: 3px; height: 1.1em;
+			background: var(--accent);
+			border-radius: 2px;
+			display: inline-block;
+		}
+		h2:first-of-type{ margin-top: 4px; }
+		.section-sub{ color: var(--text-dim); line-height: 1.65; margin: 10px 0 0; }
+
+		.steps{
+			counter-reset: step;
+			list-style: none;
+			padding: 0;
+			margin: 18px 0 0;
+			display: grid;
+			gap: 10px;
+		}
+		.steps li{
+			counter-increment: step;
+			display: flex;
+			gap: 14px;
+			align-items: flex-start;
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: var(--radius);
+			padding: 13px 16px;
+			line-height: 1.6;
+			color: var(--text);
+		}
+		.steps li::before{
+			content: counter(step);
+			flex-shrink: 0;
+			width: 24px; height: 24px;
+			border-radius: 5px;
+			background: var(--accent-soft);
+			color: var(--accent);
+			font-family: var(--mono);
+			font-weight: 600;
+			font-size: 0.8em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 1px;
+		}
+		.steps strong{ color: var(--accent); font-weight: 600; }
+
+		/* ---------- Category sections ---------- */
+		.category{
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: var(--radius);
+			margin-bottom: 12px;
+			overflow: hidden;
+			box-shadow: var(--shadow-sm);
+			transition: box-shadow 0.15s ease;
+		}
+		.category[open]{ box-shadow: var(--shadow-md); }
+
+		.category-head{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 10px;
+			padding: 13px 18px;
+			cursor: pointer;
+			list-style: none;
+			user-select: none;
+			background: var(--surface-2);
+			border-bottom: 1px solid transparent;
+		}
+		.category[open] > .category-head{ border-bottom-color: var(--line); }
+		.category-head::-webkit-details-marker{ display: none; }
+
+		.category-title{
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-weight: 600;
+			font-size: 0.95em;
+			color: var(--text);
+			letter-spacing: -0.005em;
+		}
+		.category-swatch{
+			width: 9px; height: 9px;
+			border-radius: 2px;
+			background: var(--cat-color, var(--accent));
+			flex-shrink: 0;
+		}
+		.category-meta{
+			font-family: var(--mono);
+			font-size: 0.74em;
+			color: var(--text-faint);
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			flex-shrink: 0;
+		}
+		.category-count{
+			background: var(--surface);
+			border: 1px solid var(--line);
+			border-radius: 999px;
+			padding: 2px 9px;
+		}
+		.chevron{
+			display: inline-block;
+			transition: transform 0.15s ease;
+			color: var(--text-faint);
+			font-size: 0.9em;
+		}
+		details[open] > .category-head .chevron{ transform: rotate(90deg); }
+
+		.mod-table{
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 0.87em;
+		}
+		.mod-table thead th{
+			text-align: left;
+			font-family: var(--mono);
+			font-size: 0.72em;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: var(--text-faint);
+			font-weight: 500;
+			padding: 9px 18px;
+			border-bottom: 1px solid var(--line);
+			background: var(--surface);
+		}
+		.mod-table thead th.th-creator{ text-align: right; }
+		.mod-table tbody tr{ border-top: 1px solid var(--line-soft); }
+		.mod-table tbody tr:first-child{ border-top: none; }
+		.mod-table td{
+			padding: 10px 18px;
+			vertical-align: top;
+			color: var(--text);
+		}
+		.mod-table td.mname{
+			font-family: var(--mono);
+			font-weight: 500;
+			color: var(--accent);
+			white-space: nowrap;
+			width: 1%;
+		}
+		.mod-table td.mdesc{ color: var(--text-dim); line-height: 1.55; }
+		.mod-table td.mcreator{
+			color: var(--text-faint);
+			font-size: 0.92em;
+			white-space: nowrap;
+			width: 1%;
+			text-align: right;
+		}
+		.mod-table tr.deprecated td.mname{ color: #b08585; text-decoration: line-through; text-decoration-color: #b0858580; }
+		.mod-table tr.deprecated td.mdesc{ color: var(--text-faint); }
+		.mod-table tr.hidden{ display: none; }
+		.mod-table tbody tr:hover td{ background: var(--surface-2); }
+
+		.deprecated-badge{
+			display: inline-block;
+			font-family: var(--mono);
+			font-size: 0.66em;
+			color: #b08585;
+			border: 1px solid #b0858550;
+			border-radius: 4px;
+			padding: 1px 6px;
+			margin-left: 8px;
+			vertical-align: middle;
+			text-decoration: none;
+		}
+
+		mark{
+			background: var(--accent);
+			color: #17181d;
+			border-radius: 2px;
+			padding: 0 2px;
+		}
+
+		.empty-state{
+			text-align: center;
+			color: var(--text-faint);
+			font-family: var(--mono);
+			font-size: 0.9em;
+			padding: 46px 20px;
+			display: none;
+			border: 1px dashed var(--line);
+			border-radius: var(--radius);
+		}
+
+		/* ---------- Back to top ---------- */
+		#backToTop{
+			position: fixed;
+			right: 22px;
+			bottom: 22px;
+			width: 42px; height: 42px;
+			border-radius: 8px;
+			background: var(--surface);
+			border: 1px solid var(--line);
+			color: var(--text-dim);
+			cursor: pointer;
+			box-shadow: var(--shadow-md);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0;
+			pointer-events: none;
+			transform: translateY(6px);
+			transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.15s ease, color 0.15s ease;
+			z-index: 25;
+		}
+		#backToTop.visible{ opacity: 1; pointer-events: auto; transform: translateY(0); }
+		#backToTop:hover{ border-color: var(--accent); color: var(--accent); }
+
+		footer{
+			border-top: 1px solid var(--line);
+			text-align: center;
+			color: var(--text-faint);
+			font-family: var(--mono);
+			font-size: 0.75em;
+			padding: 26px 20px 44px;
+		}
+
+		@media (prefers-reduced-motion: reduce){
+			html{ scroll-behavior: auto; }
+			.category, #backToTop, .backbutton{ transition: none; }
+		}
+	</style>
+</head>
+
+<body>
+
+<header class="hero">
+	<div class="hero-inner">
+		<p class="eyebrow">Community Content</p>
+		<h1><a href="https://sandboxels.R74n.com" class="backbutton" aria-label="Back to Sandboxels">&lt;</a> Sandboxels Mods</h1>
+		<p class="tagline">Sandboxels has a huge selection of mods that add new content to the simulator. They're created by community members and aren't endorsed by the developer of Sandboxels.</p>
+		<div class="hero-meta">
+			<span><strong id="metaTotal">363</strong> mods listed</span>
+			<span><strong id="metaCats">13</strong> categories</span>
+			<span><a href="https://github.com/R74nCom/sandboxels/tree/main/mods" target="_blank">Submit a mod on GitHub &rarr;</a></span>
+		</div>
+	</div>
+	<canvas id="sandStrip" aria-hidden="true"></canvas>
+</header>
+
+<div class="controls">
+	<div class="controls-inner">
+		<div class="search-row">
+			<div class="search-wrap">
+				<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+				<input type="text" id="searchBox" placeholder="Search mods by name, description, or creator&hellip;" autocomplete="off">
+			</div>
+			<button type="button" id="clearSearch">Clear</button>
+		</div>
+		<div id="resultCount"></div>
+	</div>
+</div>
+
+<div id="content">
+
+	<h2 id="Enable">How to enable a mod</h2>
+	<ol class="steps">
+		<li>Go to the official <a href="https://sandboxels.R74n.com/">Sandboxels website</a>.</li>
+		<li>Press the <strong>Mods</strong> button in the toolbar to open the Mod Manager.</li>
+		<li>Type the full file name of the mod, listed below. You can also enter a whole URL. It MUST be exactly as written, case-sensitive and including the ".js" ending.</li>
+		<li>Press enter, then refresh the page.</li>
+	</ol>
+
+	<h2 id="List">Sandboxels Mod List</h2>
+	<p class="section-sub">Mods submitted to our <a href="https://github.com/R74nCom/sandboxels/tree/main/mods" target="_blank">GitHub repo</a> are listed here.</p>
+
+	<div id="categoryContainer"></div>
+	<div class="empty-state" id="emptyState">No mods match "<span id="emptyQuery"></span>".</div>
+
+	<h2 id="Issues">Issues with mods</h2>
+	<p class="section-sub">We don't provide support for unofficial mods. You may ask for help in our <a href="https://discord.gg/ejUc6YPQuS">Discord server</a>, or press Clear Mods in <a href="help">Settings</a>.</p>
+	<p class="section-sub">Some mods may not work every time you load the game, or even at all!</p>
+
+</div>
+
+<button type="button" id="backToTop" aria-label="Back to top">
+	<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</button>
+
+<footer>Sandboxels &middot; community mods aren't endorsed by the developer</footer>
+
+<script>
+const MOD_DATA = [{"name": "Top-rated Mods", "mods": [{"name": "chem.js", "desc": "Several chemistry and physics-related elements", "creator": "lllllllllwith10ls", "deprecated": false}, {"name": "aChefsDream.js", "desc": "More foods, animals, tools, and other cooking items <a href=\"https://www.youtube.com/playlist?list=PLWHqGb75vC8o7CLv-pMoVb56JL9BY9F0t\">[YouTube Playlist]<\/a>", "creator": "SquareScreamYT", "deprecated": false}, {"name": "delete_all_of_element.js", "desc": "Tool that deletes every pixel of the element(s) the user clicks on", "creator": "Alice", "deprecated": false}, {"name": "survival.js", "desc": "With limited resources, you must craft, sell, and buy to progress", "creator": "R74n", "deprecated": false}, {"name": "alchemy.js", "desc": "Start with only 4 elements and unlock more by reacting them together (Most are not possible)", "creator": "R74n", "deprecated": false}, {"name": "nousersthings.js", "desc": "Many chemical elements, compounds, and more", "creator": "nousernamefound", "deprecated": false}, {"name": "spring.js", "desc": "Many nature elements, like sakura trees, butterflies, beehives, and more", "creator": "R74n", "deprecated": false}, {"name": "elementsManager.js", "desc": "Create and edit custom elements", "creator": "ggod", "deprecated": false}, {"name": "weapons.js", "desc": "Variety of different weapons", "creator": "Jayd", "deprecated": false}, {"name": "fey_and_more.js", "desc": "Fairies, magic, and a lot of other things", "creator": "Melecie", "deprecated": false}, {"name": "alchemy.js", "desc": "Start with only 4 elements and unlock more by reacting them together. (Most are not possible)", "creator": "R74n", "deprecated": false}, {"name": "chem.js", "desc": "Several chemistry and physics-related elements", "creator": "lllllllllwith10ls", "deprecated": false}, {"name": "delete_all_of_element.js", "desc": "Tool that deletes every pixel of the element(s) the user clicks on", "creator": "Alice", "deprecated": false}, {"name": "edible_everything.js", "desc": "Allows every element to be mixed into Batter and Dough", "creator": "R74n", "deprecated": false}, {"name": "spring.js", "desc": "Many nature elements, like sakura trees, butterflies, beehives, and more", "creator": "R74n", "deprecated": false}, {"name": "devtests.js", "desc": "Experimental features from the Sandboxels developer; Currently there is Earthquake in Weapons", "creator": "R74n", "deprecated": false}, {"name": "elementsManager.js", "desc": "Create and edit custom elements", "creator": "ggod", "deprecated": false}, {"name": "the_ground_og.js", "desc": "Several rock types, worldgen settings, and gemstones", "creator": "Alice", "deprecated": false}, {"name": "fey_and_more.js", "desc": "Fairies, magic, and a lot of other things", "creator": "Melecie", "deprecated": false}, {"name": "velocity.js", "desc": "Beta for explosion velocity, and later wind, which may come to the base game in the future", "creator": "R74n", "deprecated": false}], "color": "#c9922f"}, {"name": "Official", "mods": [{"name": "alchemy.js", "desc": "Start with only 4 elements and unlock more by reacting them together (Most are not possible)", "creator": "R74n", "deprecated": false}, {"name": "building.js", "desc": "Building generators and materials", "creator": "R74n", "deprecated": false}, {"name": "classic_explosives.js", "desc": "Re-adds 4 explosives removed in v1.9.3", "creator": "R74n", "deprecated": false}, {"name": "classic_textures.js", "desc": "Use textures from early versions of the game", "creator": "R74n", "deprecated": false}, {"name": "color_everything.js", "desc": "Allows every element to have a custom color", "creator": "R74n", "deprecated": false}, {"name": "death_count.js", "desc": "Messages counting when Humans die", "creator": "R74n", "deprecated": false}, {"name": "devsnacks.js", "desc": "Extra food ingredients and recipes", "creator": "R74n", "deprecated": false}, {"name": "devtests.js", "desc": "Experimental features from the Sandboxels developer", "creator": "R74n", "deprecated": false}, {"name": "edible_everything.js", "desc": "Allows every element to be mixed into Batter and Dough", "creator": "R74n", "deprecated": false}, {"name": "fools.js", "desc": "Re-adds FOOLS Mode", "creator": "R74n", "deprecated": false}, {"name": "fools24.js", "desc": "Re-adds the 2024 Multiversal Update (v5.9.1)", "creator": "R74n", "deprecated": false}, {"name": "fools25.js", "desc": "Re-adds the 2025 Element Modulator", "creator": "R74n", "deprecated": false}, {"name": "glow.js", "desc": "[CHROME ONLY] Adds a cool lighting effect to many emissive pixels, like Fire", "creator": "R74n", "deprecated": false}, {"name": "gravity_test.js", "desc": "Test for altered gravity, makes all pixels move inward", "creator": "R74n", "deprecated": false}, {"name": "mustard.js", "desc": "Mustard and Mustard Seeds", "creator": "R74n", "deprecated": false}, {"name": "no_blood.js", "desc": "Effectively removes Blood and related elements", "creator": "R74n", "deprecated": false}, {"name": "rainbow_cursor.js", "desc": "Makes your cursor multicolored", "creator": "R74n", "deprecated": false}, {"name": "random_everything.js", "desc": "Allows every element to be spawned with Random", "creator": "R74n", "deprecated": false}, {"name": "rich_grain.js", "desc": "Changes pixel grain to create richer colors", "creator": "R74n", "deprecated": false}, {"name": "smooth_water.js", "desc": "Changes water mechanics so that it flows in one direction until it bounces off of something", "creator": "R74n", "deprecated": false}, {"name": "souls.js", "desc": "Human Souls, Ectoplasm, and Tombstones", "creator": "R74n", "deprecated": false}, {"name": "spring.js", "desc": "Many nature elements, like sakura trees, butterflies, beehives, and more", "creator": "R74n", "deprecated": false}, {"name": "survival.js", "desc": "With limited resources, you must craft, sell, and buy to progress", "creator": "R74n", "deprecated": false}, {"name": "velocity.js", "desc": "Beta for explosion velocity, and later wind, which may come to the base game in the future", "creator": "R74n", "deprecated": false}], "color": "#2f8f8a"}, {"name": "Tools & Settings", "mods": [{"name": "betterModManager.js", "desc": "Improvements to the Mod Manager", "creator": "ggod", "deprecated": false}, {"name": "betterSettings.js", "desc": "Additional settings and functionality", "creator": "ggod", "deprecated": false}, {"name": "betterStats.js", "desc": "Track actual running TPS of the simulation", "creator": "mollthecoder", "deprecated": false}, {"name": "buildingreplicator.js", "desc": "Scans and replicates builds anywhere on the screen, along with some preset submitted builds", "creator": "nousernamefound", "deprecated": false}, {"name": "change.js", "desc": "Tool that only replaces existing pixels", "creator": "Alice", "deprecated": false}, {"name": "color_tools.js", "desc": "Tools that manipulate colors", "creator": "Alice", "deprecated": false}, {"name": "controllable_pixel.js", "desc": "Pixel controlled using WASD (keyboard required)", "creator": "Jayd", "deprecated": false}, {"name": "cpt_alt.js", "desc": "Destructive variant of the controllable pixel", "creator": "Alice", "deprecated": false}, {"name": "customtemptools.js", "desc": "Customizable temperature tools", "creator": "guzzo86", "deprecated": false}, {"name": "debugRework.js", "desc": "Revamps the Debug tool", "creator": "Fioushemastor", "deprecated": false}, {"name": "delete_all_of_element.js", "desc": "Tool that deletes every pixel of the element(s) the user clicks on", "creator": "Alice", "deprecated": false}, {"name": "descriptions.js", "desc": "Descriptions to the info page and tooltips of elements", "creator": "mollthecoder", "deprecated": false}, {"name": "editTools.js", "desc": "Selections, Copying, Pasting, Cutting, Shapes, and more", "creator": "ggod", "deprecated": false}, {"name": "elementEraser.js", "desc": "Tool that deletes only desired element", "creator": "SquareScreamYT", "deprecated": false}, {"name": "elementreplacer.js", "desc": "Tool that replaces elements with other elements while keeping their color", "creator": "Suss", "deprecated": false}, {"name": "elementsManager.js", "desc": "Create and edit custom elements", "creator": "ggod", "deprecated": false}, {"name": "evenmoretemptools.js", "desc": "Temperature-modifying tools (±350/tick, NaN, and Infinity)", "creator": "Alice", "deprecated": false}, {"name": "extra_element_info.js", "desc": "Descriptions to various vanilla elements. Used to provide the functionality that desc now does before it was added to vanilla", "creator": "Melecie", "deprecated": false}, {"name": "extrasaveslots.js", "desc": "Extra saves slots [KEEP IMPORTANT SAVES AS FILES!!]", "creator": "Jayd", "deprecated": false}, {"name": "find.js", "desc": "Find mode that highlights a chosen element as pulsating red and yellow <a href=\"https://github.com/R74nCom/sandboxels/commit/de0dc088ab4d928c77587b9d0e3a7d7663e3f94a\">[More Info]<\/a>", "creator": "Alice", "deprecated": false}, {"name": "gasdecay.js", "desc": "Gases will slowly decay over time", "creator": "nousernamefound", "deprecated": false}, {"name": "hideandshowtools.js", "desc": "Tools to hide elements and show hidden elements", "creator": "MicaelNotUsed<\/td><tr>\n\t\t<tr><td>human_friendly_design.js<\/td><td>Drag and Mix tools don't kill humans<\/td><td>Nekonico", "deprecated": false}, {"name": "insane_random_events.js", "desc": "Massively buffs random events", "creator": "Alice", "deprecated": false}, {"name": "jaydsfunctions.js", "desc": "Extra tools", "creator": "Jayd", "deprecated": false}, {"name": "move_tools.js", "desc": "Tools that move pixels", "creator": "Alice", "deprecated": false}, {"name": "no_scroll.js", "desc": "Disables canvas scrolling, useful for Apple Magic Mouse users", "creator": "Crimera Games", "deprecated": false}, {"name": "noconfirm.js", "desc": "Removes all confirmation popups", "creator": "mollthecoder", "deprecated": false}, {"name": "page_color.js", "desc": "Change the page color with the \"pageColor\" query parameter", "creator": "Alice", "deprecated": false}, {"name": "pixelResizeTool.js", "desc": "Button to change pixel scale", "creator": "feeshmaster", "deprecated": false}, {"name": "prompt.js", "desc": "Primitive command console", "creator": "Alice", "deprecated": false}, {"name": "prop.js", "desc": "Tool to edit the attributes of pixels", "creator": "Alice", "deprecated": false}, {"name": "random_everything.js", "desc": "Allows every element to be spawned with Random", "creator": "R74n", "deprecated": false}, {"name": "replace_all.js", "desc": "Way to replace every pixel of an element with another element <a href=\"https://github.com/R74nCom/sandboxels/commit/0066cea82345a5bc3a990df858239104e8ca9d44\">[More Info]<\/a>", "creator": "Alice", "deprecated": false}, {"name": "replace.js", "desc": "Tool that replaces every pixel of a specified element with another specified element [\" to open]", "creator": "Alice", "deprecated": false}, {"name": "save_loading.js", "desc": "The ability to save and load scenes from files [See the info page of the element]", "creator": "Alice", "deprecated": false}, {"name": "selective_paint.js", "desc": "Tool to paint only selected elements", "creator": "SquareScreamYT", "deprecated": false}, {"name": "stripe_paint.js", "desc": "Tool to paint with stripes", "creator": "Alice", "deprecated": false}, {"name": "text.js", "desc": "Tools to write text", "creator": "RedBirdly", "deprecated": false}, {"name": "texturepack.js", "desc": "Tools that let you create and share custom texture packs", "creator": "nousernamefound", "deprecated": false}, {"name": "the_ground_og.js", "desc": "Several rock types and gemstones", "creator": "Alice", "deprecated": false}, {"name": "worldEdit.js", "desc": "Selection and editing tools", "creator": "RedBirdly", "deprecated": false}, {"name": "worldgenlibrary.js", "desc": "World generation library", "creator": "Orchid", "deprecated": false}, {"name": "zoom.js", "desc": "Buttons to zoom into and move the canvas", "creator": "mnem", "deprecated": false}], "color": "#6b7280"}, {"name": "Science & Chemistry", "mods": [{"name": "alcohol.js", "desc": "Methanol, (iso-)propanol, and butanol", "creator": "Alice", "deprecated": false}, {"name": "alkahest.js", "desc": "The alkahest, a liquid which dissolves anything", "creator": "Alice", "deprecated": false}, {"name": "alkali_metal.js", "desc": "The missing alkali metals (Inspired by noblegas.js and halogen.js)", "creator": "Cube14yt<\/td><tr>\n\t\t<tr><td>aScientistsWish.js<\/td><td>Several things related to science and physics<\/td><td>Carbon Monoxide, salmonfishy", "deprecated": false}, {"name": "bettermetalscrap.js", "desc": "Metal scrap can be melted back into its original material", "creator": "nousernamefound", "deprecated": false}, {"name": "bigger_star_spawners.js", "desc": "Spawners for larger stars", "creator": "Alice", "deprecated": false}, {"name": "biology.js", "desc": "Various elements and features for building large organisms", "creator": "Nekonico", "deprecated": false}, {"name": "bioooze_and_pyrogens.js", "desc": "Bio-Ooze from <a href=\"https://frackinuniverse.miraheze.org/wiki/Main_Page\" target=\"_blank\">Frackin' Universe<\/a> and several heat-producing materials from various games' mods", "creator": "Alice", "deprecated": false}, {"name": "boiling_things.js", "desc": "Various elements can be vaporized", "creator": "Alice", "deprecated": false}, {"name": "bouncing_balls.js", "desc": "New types of balls that bounce accurately and roll", "creator": "Nekonico", "deprecated": false}, {"name": "chalcopyrite.js", "desc": "The chalcopyrite ore", "creator": "Sophie", "deprecated": false}, {"name": "chalk.js", "desc": "Chalk", "creator": "CharsonBurensen", "deprecated": false}, {"name": "charsonsmoduno.js", "desc": "Arsenic, Beryllium, Silicon, compounds, and some fake elements", "creator": "CharsonBurensen", "deprecated": false}, {"name": "chem.js", "desc": "Several chemistry and physics-related elements", "creator": "lllllllllwith10ls", "deprecated": false}, {"name": "clf3.js", "desc": "Chlorine Trifluoride", "creator": "Alice", "deprecated": false}, {"name": "cmur.js", "desc": "CharsonsModUno (???)", "creator": "CharsonBurensen", "deprecated": false}, {"name": "debrisable.js", "desc": "Expands the number of breakable elements, changes erosion, and adds way to craft certain elements from breaking other elements", "creator": "Nekonico", "deprecated": false}, {"name": "eklegems.js", "desc": "Large amouunt of gemstones and other crystals", "creator": "ekle24", "deprecated": false}, {"name": "fire_extinguisher.js", "desc": "Fire extinguisher blocks and realistic firefighting foam to put out nearly anything", "creator": "Dr_Lego", "deprecated": false}, {"name": "fire_mod.js", "desc": "Various properties to change fire behavior and radioactive fire", "creator": "Alice", "deprecated": false}, {"name": "fire_slime.js", "desc": "Pyrogenic version of slime", "creator": "Alice", "deprecated": false}, {"name": "glenn_gases.js", "desc": "Most gases from the <a href=\"https://www.jamieswhiteshirt.com/minecraft/mods/gases/\" target=\"_blank\">Glenn's Gases<\/a> mod into Sandboxels", "creator": "Alice", "deprecated": false}, {"name": "grav_mudstones.js", "desc": "Various forms of mudstone with different gravities", "creator": "Alice", "deprecated": false}, {"name": "halogen.js", "desc": "The missing halogens", "creator": "nousernamefound", "deprecated": false}, {"name": "hidden_ground.js", "desc": "Hides most rock variants from the_ground_og.js excluding the base rocks and walls", "creator": "Melecie", "deprecated": false}, {"name": "iocalfaeus_clones.js", "desc": "Iorefrius, Iolucius, and Ioradius gas", "creator": "Alice", "deprecated": false}, {"name": "jaydstuff.js", "desc": "Various chemicals and compounds", "creator": "Jayd", "deprecated": false}, {"name": "laetium.js", "desc": "Several fictional elements", "creator": "Alice", "deprecated": false}, {"name": "liquid_energy.js", "desc": "Liquid versions of the elements in the Energy category", "creator": "Alice", "deprecated": false}, {"name": "liquid_mixing.js", "desc": "Liquids can mix colors dynamically", "creator": "Nekonico", "deprecated": false}, {"name": "lye.js", "desc": "Lye", "creator": "BatteRaquette58", "deprecated": false}, {"name": "mars.js", "desc": "Martian materials", "creator": "charcoal_afterlife", "deprecated": false}, {"name": "metals.js", "desc": "Several metals", "creator": "Alice", "deprecated": false}, {"name": "mixture.js", "desc": "Many chemicals can be mixed", "creator": "lllllllllwith10ls", "deprecated": false}, {"name": "more_gold.js", "desc": "Green and Black Gold", "creator": "pixelegend4", "deprecated": false}, {"name": "morechemistry.js", "desc": "New chemicals, compounds, and machines", "creator": "Orchid", "deprecated": false}, {"name": "moreliquids.js", "desc": "Various liquids", "creator": "te-agma-at", "deprecated": false}, {"name": "neutronium_compressor.js", "desc": "Compressor from Minecraft's Avaritia mod that compresses 10,000 pixels of an element into a singularity", "creator": "Alice", "deprecated": false}, {"name": "noblegas.js", "desc": "The missing noble gases", "creator": "nousernamefound", "deprecated": false}, {"name": "nousersthings.js", "desc": "Many chemical elements, compounds, and more", "creator": "nousernamefound", "deprecated": false}, {"name": "petal_dye.js", "desc": "Boil petals to make dye", "creator": "Suss", "deprecated": false}, {"name": "radioactive.js", "desc": "Radioactive elements on the periodic table [WIP]", "creator": "kaeud", "deprecated": false}, {"name": "random_rocks.js", "desc": "Randomly generates rocks on game load", "creator": "Alice", "deprecated": false}, {"name": "roseyiede.js", "desc": "Several variants of a substance called roseyiede", "creator": "Alice", "deprecated": false}, {"name": "solubility.js", "desc": "Solubility and a simple-to-use format for other mods to use with it", "creator": "Orchid", "deprecated": false}, {"name": "some_tf_liquids.js", "desc": "Various liquids from the Thermal Foundation Minecraft mod", "creator": "Alice", "deprecated": false}, {"name": "stickystuff.js", "desc": "Slime, Honey, and others can stick to other elements", "creator": "Suss", "deprecated": false}, {"name": "the_ground_og.js", "desc": "Several rock types and gemstones", "creator": "Alice", "deprecated": false}], "color": "#7c6fc9"}, {"name": "Machines & Technology", "mods": [{"name": "circuitcore.js", "desc": "Extension for logicgates.js that adds advanced circuits <a href=\"https://redbirdly.github.io/circuitcore_tutorial.html\" target=\"_blank\">[More Info]<\/a>", "creator": "RedBirdly", "deprecated": false}, {"name": "clone_liquid.js", "desc": "Liquid form of cloner", "creator": "Alice", "deprecated": false}, {"name": "colored_lightbulbs.js", "desc": "Light bulb that can be painted", "creator": "guzzo86, ggod", "deprecated": false}, {"name": "combustion.js", "desc": "Components necessary for combustion engines", "creator": "uptzik", "deprecated": false}, {"name": "conveyance.js", "desc": "Conveyors, operated with and without electricity", "creator": "Melecie", "deprecated": false}, {"name": "coresbyp.js", "desc": "Several cores to fuel your reactors and a reactor fluid", "creator": "suspasha111", "deprecated": false}, {"name": "datawire.js", "desc": "Wire that transfers data and other operators and machines for it", "creator": "Orchid", "deprecated": false}, {"name": "drill.js", "desc": "Drills made out of several materials", "creator": "Suss", "deprecated": false}, {"name": "ExtraMachines.js", "desc": "Sensors, energy resources, materials, and more", "creator": "Mecoolnotcool", "deprecated": false}, {"name": "fans.js", "desc": "Fans", "creator": "Cube14yt", "deprecated": false}, {"name": "fine_tuned_cloner.js", "desc": "Cloner that can spawn at different rates and prevent unwanted cloning", "creator": "BatteRaquette58", "deprecated": false}, {"name": "flipflop.js", "desc": "Toggleable switches <a href=\"https://github.com/R74nCom/sandboxels/pull/134\">[More Info]<\/a>", "creator": "Flix", "deprecated": false}, {"name": "fueled_generators.js", "desc": "Fuel powered generators", "creator": "guzzo86", "deprecated": false}, {"name": "gameOfLife.js", "desc": "Conway's Game of Life on a screen", "creator": "ggod", "deprecated": false}, {"name": "heatshield.js", "desc": "Heatshields, makes Plasma cooler<\/td>", "creator": "Taterbob", "deprecated": false}, {"name": "human_friendly_design.js", "desc": "Pipes, Portals, Drag, and Mix don't kill humans", "creator": "Nekonico", "deprecated": false}, {"name": "industry.js", "desc": "Conveyors and emitters for most energy types", "creator": "pogdog", "deprecated": false}, {"name": "logicgates.js", "desc": "Predictable electricity and logic gates", "creator": "nousernamefound", "deprecated": false}, {"name": "note_block_advanced.js", "desc": "Edit of Alice's note_block.js, adds different blocks with different frequencies", "creator": "CharsonBurensen", "deprecated": false}, {"name": "note_block.js", "desc": "Musical Note Blocks", "creator": "Alice", "deprecated": false}, {"name": "nousersthings.js", "desc": "Destroyable machines, pipe variants, filters, and more", "creator": "nousernamefound", "deprecated": false}, {"name": "portal.js", "desc": "Portals that can teleport pixels", "creator": "Alice", "deprecated": false}, {"name": "pullers.js", "desc": "Pixels that pull pixels towards them", "creator": "voidapex11", "deprecated": false}, {"name": "pushers.js", "desc": "Pixels that push elements away from them", "creator": "Alice", "deprecated": false}, {"name": "sandboxels.js", "desc": "Digital screen to play a mini version of Sandboxels", "creator": "Nekonico", "deprecated": false}, {"name": "schematics.js", "desc": "Schematics for logic gates", "creator": "SquareScreamYT", "deprecated": false}, {"name": "scp.js", "desc": "Creatures and items from the SCP Wiki", "creator": "Nekonico", "deprecated": false}, {"name": "spouts.js", "desc": "Spouts for all liquids", "creator": "kaeud", "deprecated": false}, {"name": "state_voids.js", "desc": "Several elements that delete specific states of matter", "creator": "Alice", "deprecated": false}, {"name": "switches.js", "desc": "Electrical switches that can be toggled", "creator": "Alice", "deprecated": false}, {"name": "thiquovite.js", "desc": "Thiquovite and wall builders", "creator": "CharsonBurensen", "deprecated": false}, {"name": "ticking_temp_stuff.js", "desc": "Heater and Cooler variants", "creator": "Alice", "deprecated": false}, {"name": "video.js", "desc": "Video player", "creator": "ggod", "deprecated": false}, {"name": "waterspout.js", "desc": "Re-adds the old Water Spout", "creator": "mollthecoder", "deprecated": false}, {"name": "WhisperingTheory.js", "desc": "Many more variants of heater and cooler", "creator": "kaeud", "deprecated": false}, {"name": "wifi_draw.js", "desc": "Connections between WiFi in wifi.js and logicgates.js", "creator": "RedBirdly", "deprecated": false}], "color": "#3f6fb0"}, {"name": "Weapons", "mods": [{"name": "aircrafts.js", "desc": "Aircrafts and aircraft parts", "creator": "Jayd", "deprecated": false}, {"name": "c_fighter_jet.js", "desc": "Controllable fighter jet [WASD to move, Q+WASD to shoot, GVBN for missiles]", "creator": "Jayd", "deprecated": false}, {"name": "guided_rocket.js", "desc": "Homing misile", "creator": "voidapex11", "deprecated": false}, {"name": "icb.js", "desc": "Various levels of nested cluster bombs", "creator": "Alice", "deprecated": false}, {"name": "life_eater.js", "desc": "Warhammer 40,000's Life-Eater Virus and Virus Bombs", "creator": "Alice", "deprecated": false}, {"name": "liquid_void.js", "desc": "Liquid variant of Void", "creator": "Alice", "deprecated": false}, {"name": "meat_rockets.js", "desc": "Rockets that create meat when exploding", "creator": "Melecie", "deprecated": false}, {"name": "more_breaking.js", "desc": "More elements can be broken", "creator": "Alice", "deprecated": false}, {"name": "rays.js", "desc": "More Ray types", "creator": "Alice", "deprecated": false}, {"name": "rays++.js", "desc": "A couple more rays", "creator": "uptzik", "deprecated": false}, {"name": "scp.js", "desc": "Creatures and items from the SCP Wiki", "creator": "Nekonico", "deprecated": false}, {"name": "subspace.js", "desc": "The Subspace Tripmine from Roblox", "creator": "nousernamefound", "deprecated": false}, {"name": "war_crimes.js", "desc": "Tear gas and more", "creator": "voidapex11", "deprecated": false}, {"name": "weapons.js", "desc": "Variety of different weapons", "creator": "Jayd", "deprecated": false}, {"name": "weaponsRewrite.js", "desc": "BETA! weapons.js is getting an overhaul, more details soon.(hopefully)", "creator": "Jayd", "deprecated": false}], "color": "#b5504c"}, {"name": "Food & Cooking", "mods": [{"name": "aChefsDream_beta.js", "desc": "Beta testing for aChefsDream.js", "creator": "SquareScreamYT", "deprecated": false}, {"name": "aChefsDream.js", "desc": "More foods, animals, tools, and other cooking items <a href=\"https://www.youtube.com/playlist?list=PLWHqGb75vC8o7CLv-pMoVb56JL9BY9F0t\">[YouTube Playlist]<\/a>", "creator": "SquareScreamYT", "deprecated": false}, {"name": "aChefsDream2.js", "desc": "The sequel to aChefsDream.js, with brand new elements and tools<\/a>", "creator": "SquareScreamYT", "deprecated": false}, {"name": "bananas.js", "desc": "Bananas and banana plants", "creator": "Alice", "deprecated": false}, {"name": "CherrySoda.js", "desc": "Materials to make cherry soda", "creator": "guzzo86", "deprecated": false}, {"name": "community_desserts.js", "desc": "Various desserts from community suggestions", "creator": "Tisquares", "deprecated": false}, {"name": "devsnacks.js", "desc": "Extra food ingredients and recipes; Only Tea stuff currently", "creator": "R74n", "deprecated": false}, {"name": "GrapeSoda.js", "desc": "Materials to make grape soda", "creator": "guzzo86", "deprecated": false}, {"name": "greenitemsandmore.js", "desc": "Various green things, including apples and more food", "creator": "zonneschijn7<\/td>\n\t\t<tr><td>ketchup_mod.js<\/td><td>Many ketchup related elements, plus a few other condiments<\/td><td>Nubo318, Devi, Alice", "deprecated": false}, {"name": "lemonade.js", "desc": "Lemons and lemonade", "creator": "personman, baconthemyth", "deprecated": false}, {"name": "morefoodsmod.js", "desc": "More foods", "creator": "Clide4", "deprecated": false}, {"name": "mossstuff.js", "desc": "Large variety of elements, including foods", "creator": "electricmoss", "deprecated": false}, {"name": "mustard.js", "desc": "Mustard and Mustard Seeds", "creator": "R74n", "deprecated": false}, {"name": "potato_chips.js", "desc": "Potato chips and sunflower oil", "creator": "guzzo86", "deprecated": false}, {"name": "sbstuff.js", "desc": "Many foods", "creator": "stefanblox", "deprecated": false}, {"name": "soups.js", "desc": "Seasoning and soup", "creator": "pixelegend4", "deprecated": false}, {"name": "weAllScreamFor.js", "desc": "Ice cream toppings", "creator": "rottenEgghead", "deprecated": false}], "color": "#c07a3f"}, {"name": "Life & Nature", "mods": [{"name": "apioforms_pre.js", "desc": "Incomplete implementation of elements from the <a href=\"https://osmarks.net/apioform/\">Apioform Game<\/a>", "creator": "Alice", "deprecated": false}, {"name": "baby.js", "desc": "Various babies", "creator": "Suss", "deprecated": false}, {"name": "bacteria_mod.js", "desc": "Content from Minecraft's <a href=\"https://www.curseforge.com/minecraft/mc-mods/bacterium\">Bacterium Mod<\/a>", "creator": "Alice", "deprecated": false}, {"name": "bananas.js", "desc": "Bananas and banana plants", "creator": "Alice", "deprecated": false}, {"name": "biology.js", "desc": "Various elements and features that let you build your own organism", "creator": "Nekonico", "deprecated": false}, {"name": "cat.js", "desc": "Cats and cat food", "creator": "SquareScreamYT", "deprecated": false}, {"name": "cells.js", "desc": "Several experimental edits of the Cell element", "creator": "Alice", "deprecated": false}, {"name": "children.js", "desc": "Pesky little gremlins", "creator": "Taterbob", "deprecated": false}, {"name": "coldblooded.js", "desc": "Lizards, axolotls, snakes, and more", "creator": "Cube14yt", "deprecated": false}, {"name": "colonies.js", "desc": "Rockets that contain settlers to terraform a planet", "creator": "Nekonico", "deprecated": false}, {"name": "crimson.js", "desc": "Elements relating to the Crimson from Terraria", "creator": "Alice", "deprecated": false}, {"name": "dogs.js", "desc": "Simple dog and dog food", "creator": "hedera-ivy", "deprecated": false}, {"name": "eklegems.js", "desc": "Large amouunt of gemstones and other crystals", "creator": "ekle24", "deprecated": false}, {"name": "fairy_chain.js", "desc": "Way too many fairies to fey_and_more.js", "creator": "Alice", "deprecated": false}, {"name": "fantastic_creatures.js", "desc": "Various animals", "creator": "Melecie", "deprecated": false}, {"name": "fantasy_elements.js", "desc": "Fantasy creatures and substances", "creator": "pixelegend4", "deprecated": false}, {"name": "fey_and_more.js", "desc": "Fairies, magic, and a lot of other things", "creator": "Melecie", "deprecated": false}, {"name": "fishin.js", "desc": "Fishing rod and more fish with scientific names <a href=\"https://r74n.com/textviewer/?fishin.js%0A%0APress%20B%20to%20open%20bank%20account%2C%20A%2C%20S%20or%20D%20to%20cast%20your%20line%20and%20Q%20to%20reel%20it%20back%20in.\">[More Info]<\/a>", "creator": "Nekonico", "deprecated": false}, {"name": "flowers_and_forests.js", "desc": "Trees and flowers", "creator": "pixelegend4, SquareScreamYT", "deprecated": false}, {"name": "fwibblen.js", "desc": "Flying creature that turns nickel into itself, and another that does the same to the first one", "creator": "Alice", "deprecated": false}, {"name": "genetics.js", "desc": "Organism that evolves and changes as it creates more of itself by eating", "creator": "Nekonico", "deprecated": false}, {"name": "human_edit.js", "desc": "Improvements to humans", "creator": "Alice", "deprecated": false}, {"name": "kopalstuff.js", "desc": "Creatures, spirits, DNA, foods, and more", "creator": "DaviStudios", "deprecated": false}, {"name": "lizard_mod.js", "desc": "Lizards", "creator": "RedBirdly", "deprecated": false}, {"name": "lost_souls.js", "desc": "Souls and related elements", "creator": "pixelegend4, SquareScreamYT, salmonfishy", "deprecated": false}, {"name": "miscible_psoup_and_birthpool.js", "desc": "Primordial Soup and Birthpool can mix (fey_and_more.js)", "creator": "Alice", "deprecated": false}, {"name": "mobs.js", "desc": "Creepers, Zombies, and Skeletons", "creator": "Alice", "deprecated": false}, {"name": "moretrees.js", "desc": "25 more tree and wood types", "creator": "guzzo86", "deprecated": false}, {"name": "no_blood.js", "desc": "Effectively removes Blood and related elements", "creator": "R74n", "deprecated": false}, {"name": "nocancer.js", "desc": "Removes cancer one tick after it is created", "creator": "mollthecoder", "deprecated": false}, {"name": "nocancer2.js", "desc": "Removes cancer from the game altogether; May be incompatible with other mods that spawn cancer", "creator": "mollthecoder", "deprecated": false}, {"name": "nograssgrow.js", "desc": "Prevents Grass from growing", "creator": "mollthecoder", "deprecated": false}, {"name": "ocean.js", "desc": "Marine life", "creator": "SquareScreamYT", "deprecated": false}, {"name": "ores.js", "desc": "Ore generation along with tools to mine them", "creator": "nousernamefound", "deprecated": false}, {"name": "petal_dye.js", "desc": "Boil petals to make dye", "creator": "Suss", "deprecated": false}, {"name": "plants.js", "desc": "Wide variety of new plants and fruits", "creator": "Orchid", "deprecated": false}, {"name": "primordial_birthpool.js", "desc": "Cross between Primordial Soup and Birthpool. Requires fey_and_more.js", "creator": "Alice", "deprecated": false}, {"name": "scp.js", "desc": "Creatures and items from the SCP Wiki", "creator": "Nekonico", "deprecated": false}, {"name": "spring.js", "desc": "Many nature elements, like sakura trees, butterflies, beehives, and more", "creator": "R74n", "deprecated": false}, {"name": "the_ground_og.js", "desc": "Several rock types and gemstones", "creator": "Alice", "deprecated": false}, {"name": "toothpaste.js", "desc": "Teeth and paste", "creator": "Alice", "deprecated": false}, {"name": "volcanic_expansion.js", "desc": "Obsidian, Pumice, and Andesite rocks", "creator": "Jayd", "deprecated": false}], "color": "#4f9955"}, {"name": "Fun & Games", "mods": [{"name": "3pms_mod.js", "desc": "Random stuff and tools", "creator": "3pm", "deprecated": false}, {"name": "10kelements.js", "desc": "Customizable amount of randomly generated elements", "creator": "nousernamefound", "deprecated": false}, {"name": "all_around_fillers.js", "desc": "Directional Filler variants", "creator": "idk73248", "deprecated": false}, {"name": "allliquids.js", "desc": "Made all elements liquids", "creator": "Orchid", "deprecated": false}, {"name": "amogus.js", "desc": "Small Among Us structure", "creator": "Alice", "deprecated": false}, {"name": "bfdi.js", "desc": "Several references to Battle for Dream Island", "creator": "Taterbob", "deprecated": false}, {"name": "chess.js", "desc": "Play chess in Sandboxels [Press U to start game]", "creator": "ggod", "deprecated": false}, {"name": "citybuilding.js", "desc": "Seeds that create miniature buildings and other city-related items", "creator": "SquareScreamYT", "deprecated": false}, {"name": "collab_mod.js", "desc": "Created by multiple people, adds random things", "creator": "mrapple, ilikepizza, stefanblox", "deprecated": false}, {"name": "cubesstuff.js", "desc": "Some random stuff like Disco Ball, Pyrite, and Nordic Gold", "creator": "Cube14yt", "deprecated": false}, {"name": "doom.js", "desc": "As seen on TikTok - Select the Doom element to start [WASD to move]", "creator": "ggod", "deprecated": false}, {"name": "elem3.js", "desc": "All elements and combinations from Elemental 3 [Very Large]", "creator": "Sophie", "deprecated": false}, {"name": "explosionsound.js", "desc": "Sound effects for explosions", "creator": "nousernamefound", "deprecated": false}, {"name": "fishin.js", "desc": "Fishing rod and more fish with scientific names <a href=\"https://r74n.com/textviewer/?fishin.js%0A%0APress%20B%20to%20open%20bank%20account%2C%20A%2C%20S%20or%20D%20to%20cast%20your%20line%20and%20Q%20to%20reel%20it%20back%20in.\">[More Info]<\/a>", "creator": "Nekonico", "deprecated": false}, {"name": "fools+.js", "desc": "Improves and makes fools.js extremely annoying", "creator": "SquareScreamYT", "deprecated": false}, {"name": "funny elements 2022-11-15.js", "desc": "Few curated randomly-generated elements", "creator": "Alice", "deprecated": false}, {"name": "funny_solid.js", "desc": "Feces", "creator": "Alice", "deprecated": false}, {"name": "funnynames.js", "desc": "Various ways to mess with the names of elements", "creator": "nousernamefound", "deprecated": false}, {"name": "lactose_intolerance_and_celiac.js", "desc": "Humans explode on contact with milk, wheat, bread, or toast", "creator": "Nubo318", "deprecated": false}, {"name": "lattice_filler.js", "desc": "Combination of lattice and filler and a destructive variant", "creator": "Suss", "deprecated": false}, {"name": "liquid_mixing.js", "desc": "Liquids can mix colors dynamically", "creator": "Nekonico", "deprecated": false}, {"name": "lone_urea.js", "desc": "Urea", "creator": "Alice", "deprecated": false}, {"name": "maze.js", "desc": "Solvable maze generator", "creator": "ggod", "deprecated": false}, {"name": "memelists.js", "desc": "You must select elements through a list at the bottom of the page", "creator": "mollthecoder", "deprecated": false}, {"name": "minecraft.js", "desc": "Several things from Minecraft", "creator": "nousernamefound", "deprecated": false}, {"name": "minesweeper.js", "desc": "Implementation of Minesweeper", "creator": "Alice", "deprecated": false}, {"name": "more_art_states.js", "desc": "More states of the Art element", "creator": "ACrazyPencil", "deprecated": false}, {"name": "musicalfruit.js", "desc": "Humans get gas from eating Beans", "creator": "mollthecoder", "deprecated": false}, {"name": "nekonicos_stuff.js", "desc": "Random stuff like graphite, oobleck, and red ice, as well as many machines", "creator": "Nekonico", "deprecated": false}, {"name": "prideflags.js", "desc": "Some pride flags to the game", "creator": "Adora", "deprecated": false}, {"name": "random_elems.js", "desc": "Curated randomly generated elements", "creator": "Alice", "deprecated": false}, {"name": "random_liquids.js", "desc": "Randomly generates liquids on game load", "creator": "Alice", "deprecated": false}, {"name": "sbmixup.js", "desc": "Silly elements from a <a href=\"https://R74n.com/mix/\" target=\"_blank\">Mix-Up!<\/a> game", "creator": "stefanblox<\/td>\n\t\t<tr><td>scp.js<\/td><td>Creatures and items from the SCP Wiki<\/td><td>Nekonico", "deprecated": false}, {"name": "sensitive.js", "desc": "Makes all elements sensitive to air", "creator": "pogdog", "deprecated": false}, {"name": "sports_beta.js", "desc": "Several sports items", "creator": "BluBun5193", "deprecated": false}, {"name": "star_wars.js", "desc": "Various items from Star Wars by Disney", "creator": "SeaPickle754<\/td>\n\t\t<tr><td>sus.js<\/td><td>Among Us crewmate<\/td><td>Nv7", "deprecated": false}, {"name": "thiquovite.js", "desc": "Thiquovite and wall builders", "creator": "CharsonBurensen", "deprecated": false}, {"name": "triggerable_random_powders.js", "desc": "Powders with different abilities, such as heating and cooling", "creator": "Alice", "deprecated": false}, {"name": "troll.js", "desc": "Various dumb elements that iterate randomly on the entire screen", "creator": "Alice", "deprecated": false}, {"name": "WhisperingTheory.js", "desc": "Powder and gas variant of heater and cooler", "creator": "kaeud", "deprecated": false}], "color": "#b0559a"}, {"name": "Visual Effects", "mods": [{"name": "acid_and_shapes.js", "desc": "Weird visual effects enabled in settings", "creator": "Alice", "deprecated": false}, {"name": "asciiboxels.js", "desc": "Renders pixels as ASCII characters", "creator": "Nekonico", "deprecated": false}, {"name": "clouds.js", "desc": "Moving clouds, sky.js recommended", "creator": "RedBirdly", "deprecated": false}, {"name": "customBackground.js", "desc": "Set your background to an image link", "creator": "Jayd", "deprecated": false}, {"name": "fractals.js", "desc": "Element and tools to render fractals in game", "creator": "nousernamefound", "deprecated": false}, {"name": "heatglow.js", "desc": "Red glowing effect for hot metals", "creator": "nousernamefound", "deprecated": false}, {"name": "hexagon_test.js", "desc": "Pixels look like hexagons", "creator": "RedBirdly", "deprecated": false}, {"name": "invisible_dye.js", "desc": "Elements like Dye and Spray Paint that take the color of the background", "creator": "Alice", "deprecated": false}, {"name": "invisible_wall.js", "desc": "Element like Wall that takes the color of the background", "creator": "Alice", "deprecated": false}, {"name": "lightmap.js", "desc": "Light sources glow", "creator": "RedBirdly", "deprecated": false}, {"name": "liquid_mixing.js", "desc": "Liquids can mix colors dynamically", "creator": "Nekonico", "deprecated": false}, {"name": "manyMoreThemes.js", "desc": "Additional themes", "creator": "Jayd", "deprecated": false}, {"name": "moreViews.js", "desc": "Many new rendering modes", "creator": "ggod", "deprecated": false}, {"name": "occlusion.js", "desc": "Realistic shadows, similar to Terraria's lighting", "creator": "RedBirdly", "deprecated": false}, {"name": "onecolor.js", "desc": "Placed pixels are single-colored", "creator": "nousernamefound", "deprecated": false}, {"name": "paint_event.js", "desc": "Random event that randomly paints a circle", "creator": "Alice", "deprecated": false}, {"name": "rainbow_tests.js", "desc": "Variants of the rainbow element with different maths", "creator": "Alice", "deprecated": false}, {"name": "real_light.js", "desc": "Everything is dark unless hit with a photon (Light) pixel, hot, or glowing", "creator": "Nekonico", "deprecated": false}, {"name": "rich_grain.js", "desc": "Changes pixel grain to create richer colors", "creator": "R74n", "deprecated": false}, {"name": "shader_by_jayd.js", "desc": "Glow around light elements", "creator": "Jayd", "deprecated": false}, {"name": "Shroomboxels.js", "desc": "Variant of acid_and_shapes.js that uses a different trigonometric function", "creator": "Alice", "deprecated": false}, {"name": "singleColor.js", "desc": "Elements pick one color each time they're drawn", "creator": "stefanblox", "deprecated": false}, {"name": "sky.js", "desc": "Day-night cycle", "creator": "RedBirdly", "deprecated": false}, {"name": "solidcolor.js", "desc": "Placed pixels have a solid color", "creator": "SquareScreamYT", "deprecated": false}, {"name": "texture_pack_by_jayd.js", "desc": "Cool background", "creator": "Jayd", "deprecated": false}, {"name": "UwUify.js", "desc": "\"UwU\" background", "creator": "Jayd", "deprecated": false}], "color": "#3a9aa3"}, {"name": "Compilations", "mods": [{"name": "food_mods.js", "desc": "Combination of most food mods", "creator": "stefanblox, electricmoss, Tisquares, SquareScreamYT, Adora, pixelegend4, Alice, Nubo318, Clide4, rottenEgghead", "deprecated": false}], "color": "#a8863f"}, {"name": "Technical Libraries & Tests", "mods": [{"name": "1.10example.js", "desc": "Examples for modern rendering modding and more", "creator": "R74n", "deprecated": false}, {"name": "a_bundle_of_tests.js", "desc": "Several test functions", "creator": "Alice", "deprecated": false}, {"name": "all_stain.js", "desc": "Every element stains solids", "creator": "stefanblox", "deprecated": false}, {"name": "betterMenuScreens.js", "desc": "Library for mods to create their own menus", "creator": "ggod", "deprecated": false}, {"name": "changePixelDebug.js", "desc": "The changePixel() function aborts and logs to console when it tries to change to a non-existent element", "creator": "Alice", "deprecated": false}, {"name": "code_library.js", "desc": "Functions and variables common to some other mods", "creator": "Alice", "deprecated": false}, {"name": "controllable_pixel_test.js", "desc": "Pixel that can be controlled with the keyboard keys <a href=\"https://github.com/R74nCom/sandboxels/commit/58dfa9477f2ed7ec9c44b00a35162e7c63bc129c\">[More Info]<\/a> [PC ONLY]", "creator": "Alice", "deprecated": false}, {"name": "customexplosion.js", "desc": "Custom explosion element and interface for it", "creator": "Orchid", "deprecated": false}, {"name": "date_test.js", "desc": "K-pop idol birthday testing stuff", "creator": "Alice", "deprecated": false}, {"name": "drawPixels_change_test.js", "desc": "Test of altering drawPixels(). Gives burning pixels a red overlay similar to the yellow overlay for charged pixels", "creator": "Alice", "deprecated": false}, {"name": "example_mod.js", "desc": "Example mod for new modders", "creator": "R74n", "deprecated": false}, {"name": "explodeAtPlus.js", "desc": "Extension of the explodeAt function with more options", "creator": "Alice", "deprecated": false}, {"name": "fill_script.js", "desc": "Script that fills an area", "creator": "TealEgg#7646", "deprecated": false}, {"name": "generative_mods.js", "desc": "Modpack with optional mass element generation", "creator": "Alice", "deprecated": false}, {"name": "generator_prompt.js", "desc": "Prompt to use generative_mods.js's element generators after the game finishes loading", "creator": "Alice", "deprecated": false}, {"name": "gradient_background_support.js", "desc": "Enables linear gradients for backgrounds as arrays in settings.bg", "creator": "Alice", "deprecated": false}, {"name": "libpacman-v1.js", "desc": "Library for making mods", "creator": "mollthecoder", "deprecated": false}, {"name": "libpixeltracking.js", "desc": "Library for tracking pixels", "creator": "mollthecoder", "deprecated": false}, {"name": "maxColorOffset.js", "desc": "Property to specify how much a pixel's color can be randomly offset from the element color", "creator": "Alice", "deprecated": false}, {"name": "modlangs.js", "desc": "Customisable property in an element to allow for translations in mods. See the file for instructions on how to implement", "creator": "SquareScreamYT", "deprecated": false}, {"name": "nested_for_reaction_example.js", "desc": "Example of using a nested for loop to add reactions. It makes various things kill plants", "creator": "Alice", "deprecated": false}, {"name": "nv7.js", "desc": "Giant Nv7 image [Large]", "creator": "Nv7", "deprecated": false}, {"name": "orchidslibrary.js", "desc": "Library used by morechemistry.js, plants.js, and datawire.js", "creator": "Orchid", "deprecated": false}, {"name": "place_all_elements.js", "desc": "Experimental function that places every pixel", "creator": "Alice", "deprecated": false}, {"name": "PRNGworldgenlib.js", "desc": "World generation library with seeded randomness", "creator": "Orchid", "deprecated": false}, {"name": "randomness_but_tick.js", "desc": "Random experimental elements using the tick function feature", "creator": "Alice", "deprecated": false}, {"name": "randomness_but_tool.js", "desc": "Random experimental elements using the tool function feature", "creator": "Alice", "deprecated": false}, {"name": "randomness.js", "desc": "Random experimental elements", "creator": "Alice", "deprecated": false}, {"name": "scenexe.js", "desc": "Move through and damage a simulated field of polygons [WIP]", "creator": "nousernamefound", "deprecated": false}, {"name": "structure_test_2.js", "desc": "Another test for implementing structures into Sandboxels (requires the previous test)", "creator": "Alice", "deprecated": false}, {"name": "structure_test.js", "desc": "Test for implementing structures into Sandboxels", "creator": "Alice", "deprecated": false}, {"name": "test.js", "desc": "Test that adds mayo :)", "creator": "R74n", "deprecated": false}, {"name": "tool_pixel_behavior.js", "desc": "Gives unique behaviors to tools if placed with cheats", "creator": "Alice", "deprecated": false}, {"name": "worldgen_test.js", "desc": "Element that generates a save with a grass layer, dirt layer, rock layer, and a pond", "creator": "Alice", "deprecated": false}, {"name": "worldgenlibrary.js", "desc": "World generation library", "creator": "Orchid", "deprecated": false}], "color": "#5f6b7d"}, {"name": "Broken or Deprecated", "mods": [{"name": "a_mod_by_alice.js", "desc": "Combination of most of Alice's mods, and some other things", "creator": "Alice", "deprecated": true}, {"name": "adjustablepixelsize.js", "desc": "Set the pixelSize with a URL parameter", "creator": "Alice", "deprecated": true}, {"name": "advanced_colonies.js", "desc": "Davlers, creatures with complex colonies", "creator": "DaviStudios", "deprecated": true}, {"name": "background_changer.js", "desc": "Press 'B' to change canvas background to a URL", "creator": "R74n", "deprecated": true}, {"name": "borders.js", "desc": "Black borders around pixels (Use bright background)", "creator": "R74n", "deprecated": true}, {"name": "changeTempReactionParameter.js", "desc": "The changeTemp property to modded reactions", "creator": "Alice", "deprecated": true}, {"name": "fast_lightmap.js", "desc": "Light sources glow, but faster", "creator": "RedBirdly", "deprecated": true}, {"name": "haseulite.js", "desc": "Loona-related materials with various properties", "creator": "Alice", "deprecated": true}, {"name": "humans.js", "desc": "Humans. Now part of the base game", "creator": "R74n", "deprecated": true}, {"name": "invertscroll.js", "desc": "Inverts the scroll wheel for adjusting brush size (now a setting)", "creator": "SquareScreamYT", "deprecated": true}, {"name": "mobile_shift.js", "desc": "Button for shift on mobile (Now in the base game)", "creator": "SquareScreamYT", "deprecated": true}, {"name": "nicer_flame.js", "desc": "Fire is visually pleasing", "creator": "RedBirdly", "deprecated": true}, {"name": "nopixellimit.js", "desc": "Removes the pixel limit. (now a setting)", "creator": "Jayd", "deprecated": true}, {"name": "pizzasstuff.js", "desc": "New animals, foods, and plants", "creator": "_ilikepizza_", "deprecated": true}, {"name": "the_ground.js", "desc": "Several rock types, worldgen settings, and gemstones", "creator": "Alice", "deprecated": true}, {"name": "unhide.js", "desc": "Unhides all elements except molten ones. (This functionality now exists as a vanilla setting)", "creator": "R74n", "deprecated": true}, {"name": "wheel_fix.js", "desc": "Attempts to fix the brush scaling too much with the mouse wheel for some people. Deprecated", "creator": "Nubo318", "deprecated": true}], "color": "#8a6060"}];
+</script>
+
+<script>
+(function(){
+	"use strict";
+
+	var container = document.getElementById('categoryContainer');
+	var searchBox = document.getElementById('searchBox');
+	var clearBtn = document.getElementById('clearSearch');
+	var resultCount = document.getElementById('resultCount');
+	var emptyState = document.getElementById('emptyState');
+	var emptyQuery = document.getElementById('emptyQuery');
+
+	var totalMods = 0;
+	MOD_DATA.forEach(function(c){ totalMods += c.mods.length; });
+	document.getElementById('metaTotal').textContent = totalMods;
+	document.getElementById('metaCats').textContent = MOD_DATA.length;
+	searchBox.placeholder = 'Search ' + totalMods + ' mods by name, description, or creator\u2026';
+
+	function slug(str){
+		return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+	}
+	function escapeRegExp(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+	// Build DOM
+	MOD_DATA.forEach(function(cat){
+		var details = document.createElement('details');
+		details.className = 'category';
+		details.style.setProperty('--cat-color', cat.color);
+		details.id = 'cat-' + slug(cat.name);
+		details.open = true;
+
+		var summary = document.createElement('summary');
+		summary.className = 'category-head';
+		summary.innerHTML =
+			'<span class="category-title"><span class="category-swatch"></span>' + cat.name + '</span>' +
+			'<span class="category-meta"><span class="category-count"><span class="cat-visible-count">' + cat.mods.length + '</span> mods</span> <span class="chevron">&#9656;</span></span>';
+		details.appendChild(summary);
+
+		var table = document.createElement('table');
+		table.className = 'mod-table';
+		table.innerHTML = '<thead><tr><th>Mod</th><th>Description</th><th class="th-creator">Creator</th></tr></thead>';
+		var tbody = document.createElement('tbody');
+
+		cat.mods.forEach(function(mod){
+			var tr = document.createElement('tr');
+			if(mod.deprecated) tr.className = 'deprecated';
+			tr.setAttribute('data-search', (mod.name + ' ' + mod.desc + ' ' + mod.creator).toLowerCase().replace(/<[^>]+>/g, ' '));
+
+			var tdName = document.createElement('td');
+			tdName.className = 'mname';
+			tdName.innerHTML = mod.name + (mod.deprecated ? '<span class="deprecated-badge">deprecated</span>' : '');
+
+			var tdDesc = document.createElement('td');
+			tdDesc.className = 'mdesc';
+			tdDesc.innerHTML = mod.desc;
+
+			var tdCreator = document.createElement('td');
+			tdCreator.className = 'mcreator';
+			tdCreator.innerHTML = mod.creator;
+
+			tr.appendChild(tdName);
+			tr.appendChild(tdDesc);
+			tr.appendChild(tdCreator);
+			tbody.appendChild(tr);
+		});
+
+		table.appendChild(tbody);
+		details.appendChild(table);
+		container.appendChild(details);
+	});
+
+	function runSearch(){
+		var q = searchBox.value.trim().toLowerCase();
+		var totalVisible = 0;
+		var anyCategoryVisible = false;
+
+		document.querySelectorAll('.category').forEach(function(cat){
+			var rows = cat.querySelectorAll('tbody tr');
+			var visibleInCat = 0;
+			rows.forEach(function(row){
+				var match = !q || row.getAttribute('data-search').indexOf(q) !== -1;
+				row.classList.toggle('hidden', !match);
+				if(match) visibleInCat++;
+			});
+			cat.style.display = visibleInCat === 0 ? 'none' : '';
+			if(visibleInCat > 0) anyCategoryVisible = true;
+			var countEl = cat.querySelector('.cat-visible-count');
+			countEl.textContent = visibleInCat;
+			if(q) cat.open = true;
+			totalVisible += visibleInCat;
+		});
+
+		resultCount.textContent = q ? (totalVisible + ' of ' + totalMods + ' mods match') : (totalMods + ' mods across ' + MOD_DATA.length + ' categories');
+		emptyState.style.display = (q && !anyCategoryVisible) ? 'block' : 'none';
+		emptyQuery.textContent = searchBox.value.trim();
+		clearBtn.classList.toggle('visible', !!q);
+	}
+
+	var debounceTimer;
+	searchBox.addEventListener('input', function(){
+		clearTimeout(debounceTimer);
+		debounceTimer = setTimeout(runSearch, 80);
+	});
+	clearBtn.addEventListener('click', function(){
+		searchBox.value = '';
+		runSearch();
+		searchBox.focus();
+	});
+
+	runSearch();
+
+	// ---------- Back to top ----------
+	var backToTop = document.getElementById('backToTop');
+	window.addEventListener('scroll', function(){
+		backToTop.classList.toggle('visible', window.scrollY > 600);
+	}, { passive: true });
+	backToTop.addEventListener('click', function(){
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+
+	// ---------- Signature strip: quiet sediment-layer animation ----------
+	var canvas = document.getElementById('sandStrip');
+	var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	function initSand(){
+		var ctx = canvas.getContext('2d');
+		var dpr = Math.min(window.devicePixelRatio || 1, 2);
+		var cssW, cssH, cols, cell = 3;
+		var grid;
+		var colors = ['#c9922f', '#3a9aa3', '#4f9955', '#7c6fc9'];
+
+		function resize(){
+			cssW = canvas.clientWidth;
+			cssH = canvas.clientHeight;
+			canvas.width = cssW * dpr;
+			canvas.height = cssH * dpr;
+			ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+			cols = Math.floor(cssW / cell);
+			var rows = Math.floor(cssH / cell);
+			grid = new Array(cols * rows).fill(0);
+			canvas._rows = rows;
+		}
+		resize();
+		window.addEventListener('resize', resize);
+
+		function idx(x, y){ return y * cols + x; }
+
+		function spawn(){
+			var x = Math.floor(Math.random() * cols);
+			if(grid[idx(x, 0)] === 0){
+				grid[idx(x, 0)] = colors[Math.floor(Math.random() * colors.length)];
+			}
+		}
+
+		function step(){
+			var rows = canvas._rows;
+			for(var y = rows - 2; y >= 0; y--){
+				for(var x = 0; x < cols; x++){
+					var c = grid[idx(x, y)];
+					if(!c) continue;
+					var below = idx(x, y + 1);
+					if(grid[below] === 0){
+						grid[below] = c; grid[idx(x, y)] = 0;
+					}else{
+						var dir = Math.random() < 0.5 ? -1 : 1;
+						var nx = x + dir;
+						if(nx >= 0 && nx < cols && grid[idx(nx, y + 1)] === 0 && grid[idx(nx, y)] === 0){
+							grid[idx(nx, y + 1)] = c; grid[idx(x, y)] = 0;
+						}
+					}
+				}
+			}
+		}
+
+		function draw(){
+			ctx.clearRect(0, 0, cssW, cssH);
+			var rows = canvas._rows;
+			ctx.globalAlpha = 0.55;
+			for(var y = 0; y < rows; y++){
+				for(var x = 0; x < cols; x++){
+					var c = grid[idx(x, y)];
+					if(c){ ctx.fillStyle = c; ctx.fillRect(x * cell, y * cell, cell, cell); }
+				}
+			}
+			ctx.globalAlpha = 1;
+		}
+
+		var frame = 0;
+		function loop(){
+			frame++;
+			if(frame % 4 === 0) spawn();
+			step();
+			draw();
+			if(!reduceMotion) requestAnimationFrame(loop);
+		}
+
+		if(reduceMotion){
+			for(var i = 0; i < 200; i++){ spawn(); step(); }
+			draw();
+		}else{
+			requestAnimationFrame(loop);
+		}
+	}
+
+	if(canvas) initSand();
+})();
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8485284630785740"
+		crossorigin="anonymous"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-93720349-9"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-93720349-9');
+</script>
+
+</body>
+
+</html>
